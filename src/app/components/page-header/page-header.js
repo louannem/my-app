@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import "./page-header.css";
+import CtaUi from '../cta-ui/cta-ui';
 
 export default function PageHeader(props) {
   const router = useRouter();
@@ -20,7 +21,13 @@ export default function PageHeader(props) {
       label: "Contact"    
     }
    
-  ]
+  ];
+
+  const cta = {
+    label: "Contact",
+    type: "primary",
+    variant: 1,  
+  };
 
   const Logo = () => {
     if (props.srcLogo) return (
@@ -68,7 +75,7 @@ export default function PageHeader(props) {
     </nav>
     {/* Bouton d'action */ }
     <div>
-      <button>Cta</button>
+      <CtaUi {...cta} />
     </div>
     </header>
   );
